@@ -417,6 +417,9 @@ class OpenerDirector:
                 continue
 
             i = meth.find("_")
+            if i < 1:
+                # Don't match "open", "_open", etc.
+                continue
             protocol = meth[:i]
             condition = meth[i+1:]
 
